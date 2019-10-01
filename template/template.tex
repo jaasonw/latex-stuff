@@ -1,0 +1,36 @@
+% mostly used steven's as a base
+\documentclass{article}
+\usepackage{amsmath, fancyhdr}
+\usepackage[margin = 1in]{geometry}
+
+\newenvironment{problem}{
+	\begin{enumerate}
+		\item[\bfseries{1}]
+}
+{
+	\end{enumerate}
+}
+
+\begin{document}
+
+\def\class{CLASS}
+\def\header{HEADER}
+\def\first{FIRST}
+\def\last{LAST}
+
+\fancypagestyle{useheader}
+{
+	\fancyhf{}
+	\setlength{\headsep}{\baselineskip}
+	\lhead{\class}
+	\chead{\header}
+	\rhead{\last, \first}
+	\cfoot{\thepage}
+}
+\pagestyle{useheader}
+
+\begin{problem}
+    problem goes here?
+\end{problem}
+
+\end{document}
