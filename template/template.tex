@@ -1,36 +1,42 @@
-% mostly used steven's as a base
 \documentclass{article}
-\usepackage{amsmath, fancyhdr}
+\usepackage{amsmath, amssymb, fancyhdr}
 \usepackage[margin = 1in]{geometry}
 
-\newenvironment{problem}{
-	\begin{enumerate}
-		\item[\bfseries{1}]
-}
-{
-	\end{enumerate}
-}
-
-\begin{document}
-
 \def\class{CLASS}
-\def\header{HEADER}
+\def\header{TITLE}
 \def\first{FIRST}
 \def\last{LAST}
 
 \fancypagestyle{useheader}
 {
-	\fancyhf{}
-	\setlength{\headsep}{\baselineskip}
-	\lhead{\class}
-	\chead{\header}
-	\rhead{\last, \first}
-	\cfoot{\thepage}
+    \fancyhf{}
+    \setlength{\headsep}{\baselineskip}
+    \lhead{\class}
+    \chead{\header}
+    \rhead{\last, \first}
+    \cfoot{\thepage}
 }
+
+\newcommand{\qed}{\hfill$\blacksquare$}
+
+\newenvironment{problem}[1]{
+    \begin{enumerate}
+        \item[\bfseries{#1}]
+}
+{
+    \end{enumerate}
+}
+
+\begin{document}
 \pagestyle{useheader}
 
-\begin{problem}
-    problem goes here?
+\begin{problem}{1}
+    Question goes here
+    \begin{align*}
+        y &= mx + b && \text{step 1}\\
+        y - b &= mx && \text{step 2}\\
+	\end{align*}
+	\qed
 \end{problem}
 
 \end{document}
