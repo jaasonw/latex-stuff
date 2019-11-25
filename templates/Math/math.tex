@@ -17,26 +17,31 @@
     \cfoot{\thepage}
 }
 
+% draws a black square for proofs
 \newcommand{\qed}{\hfill$\blacksquare$}
 
-\newenvironment{problem}[1]{
+% args: (equation (aligns at & sign: x &= y), explanation)
+\newcommand{\step}[2]{#1 && \text{#2}\\}
+
+% args: (number, question, steps, explanation)
+\newenvironment{problem}[4]{
     \begin{enumerate}
-        \item[\bfseries{#1}]
-}
-{
+        \item[\bfseries{#1}] #2
+        \begin{align*}
+            #3
+        \end{align*}
+        #4
     \end{enumerate}
 }
 
 \begin{document}
 \pagestyle{useheader}
 
-\begin{problem}{1}
-    Question goes here
-    \begin{align*}
-        y &= mx + b && \text{step 1}\\
-        y - b &= mx && \text{step 2}\\
-    \end{align*}
-    \qed
+\begin{problem}{1} {Question} {
+    \step{y &= mx + b}{Step 1}
+    \step{y - b &= mx}{Step 2}
+}
+{Explanation Paragraph}
 \end{problem}
 
 \end{document}
